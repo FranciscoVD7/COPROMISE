@@ -1,0 +1,206 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2e4957;
+  color: white;
+}
+
+header, footer {
+  background-color: #004d40;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background-color: #00796b;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #b2dfdb;
+}
+
+main {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Acordeón general */
+.accordion-item {
+  background: #1f3a44;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+.accordion-header {
+  padding: 15px 20px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.2rem;
+  position: relative;
+  user-select: none;
+  color: #ffa500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-header:hover {
+  background: #296c72;
+}
+
+.accordion-header::after {
+  content: '\f078'; /* FontAwesome chevron-down */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+  color: #ffa500;
+}
+
+.accordion-header.active::after {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: #224957;
+  color: white;
+  padding: 0 20px;
+}
+
+.accordion-content.open {
+  padding: 15px 20px 20px 20px;
+  max-height: 800px; /* aumentado para más espacio */
+}
+
+.accordion-content p {
+  margin-top: 0;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.accordion-content img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+/* Sub-acordeón */
+.sub-accordion-item {
+  background: #2a566e;
+  border-radius: 8px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.sub-accordion-header {
+  padding: 12px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  user-select: none;
+  color: #ffd580;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-accordion-header:hover {
+  background: #3c7194;
+}
+
+.sub-accordion-header::after {
+  content: '\f078';
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+  color: #ffd580;
+}
+
+.sub-accordion-header.active::after {
+  transform: rotate(180deg);
+}
+
+.sub-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #2e5e87;
+  color: white;
+  padding: 0 18px;
+}
+
+.sub-accordion-content.open {
+  padding: 15px 18px 15px 18px;
+  max-height: 1200px; /* Aumentado bastante para que no se corte */
+}
+
+.sub-accordion-content p {
+  margin: 0 0 15px 0;
+}
+
+.sub-accordion-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+/* Botón de chat */
+.boton-chat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.boton-chat:hover {
+  background: #1ebe5d;
+}
+
+.quienes-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.quienes-container h3 {
+  color: orange;
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.quienes-container i {
+  display: block;
+  font-size: 2rem;
+  color: orange;
+  margin-bottom: 10px;
+}
+

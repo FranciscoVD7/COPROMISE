@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Servicios - COPROMISE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body { 
+      font-family: 'Roboto', sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background-color: #2e4957; 
+      color: white; 
+    }
+    header { 
+      background: linear-gradient(to right, #004d40, #00695c); 
+      padding: 30px 20px; 
+      text-align: center;
+    }
+    .logo-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .logo-container img {
+      height: 100px; /* tamaño aumentado aquí */
+    }
+    nav { 
+      background-color: #00796b; 
+      display: flex; 
+      justify-content: center; 
+      padding: 12px 0; 
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    }
+    nav a { 
+      color: white; 
+      text-decoration: none; 
+      margin: 0 20px; 
+      font-weight: bold; 
+      transition: color 0.3s ease; 
+    }
+    nav a:hover { color: #b2dfdb; }
+    main { 
+      padding: 60px 20px; 
+      text-align: center; 
+      animation: fadeIn 1s ease-in-out; 
+    }
+    h2 { color: orange; font-size: 2rem; margin-bottom: 20px; }
+    p { 
+      font-size: 1.1rem; 
+      max-width: 800px; 
+      margin: 0 auto 20px; 
+      color: white;
+    }
+    .boton-chat { 
+      position: fixed; 
+      bottom: 20px; 
+      right: 20px; 
+      background: #25D366; 
+      color: white; 
+      padding: 12px 16px; 
+      border: none; 
+      border-radius: 50%; 
+      font-size: 1.5rem; 
+      cursor: pointer; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+    }
+    .boton-chat:hover { background: #1ebe5d; }
+    footer { 
+      background-color: #004d40; 
+      color: white; 
+      text-align: center; 
+      padding: 20px; 
+      margin-top: 40px; 
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background: #2e4957;
+      color: white;
+    }
+    header, footer {
+      background-color: #004d40;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    nav {
+      background-color: #00796b;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 12px;
+    }
+    nav a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #b2dfdb;
+    }
+    main {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h2 {
+      color: orange;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    /* Acordeón general */
+    .accordion-item {
+      background: #1f3a44;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    .accordion-header {
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.2rem;
+      position: relative;
+      user-select: none;
+      color: #ffa500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .accordion-header:hover {
+      background: #296c72;
+    }
+    .accordion-header::after {
+      content: '\f078'; /* FontAwesome chevron-down */
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+      color: #ffa500;
+    }
+    .accordion-header.active::after {
+      transform: rotate(180deg);
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: #224957;
+      color: white;
+      padding: 0 20px;
+    }
+    .accordion-content.open {
+      padding: 15px 20px 20px 20px;
+      max-height: 10000px;
+    }
+    .accordion-content p {
+      margin-top: 0;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+    .accordion-content img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    }
+    /* Sub-acordeón (para estudios de laboratorio) */
+    .sub-accordion-item {
+      background: #2a566e;
+      border-radius: 8px;
+      margin: 10px 0;
+      overflow: hidden;
+    }
+    .sub-accordion-header {
+      padding: 12px 18px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1rem;
+      user-select: none;
+      color: #ffd580;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sub-accordion-header:hover {
+      background: #3c7194;
+    }
+    .sub-accordion-header::after {
+      content: '\f078';
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
+      color: #ffd580;
+    }
+    .sub-accordion-header.active::after {
+      transform: rotate(180deg);
+    }
+    .sub-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #2e5e87;
+      color: white;
+      padding: 0 18px;
+    }
+    .sub-accordion-content.open {
+      padding: 15px 18px 15px 18px;
+      max-height: 400px;
+    }
+    .sub-accordion-content p {
+      margin: 0 0 15px 0;
+    }
+    .sub-accordion-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.4);
+    }
+    .boton-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+<div class="logo-container">
+    <img src="1.png" alt="Logo Izquierda">
+    <img src="2.png" alt="Logo Centro">
+    <img src="3.png" alt="Logo Derecha">
+  </div>
+  <h1><i class="fas fa-leaf"></i> COPROMISE</h1>
+  <p>Consultoría Ambiental y de Seguridad</p>
+</header>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="contacto.html">Contacto</a>
+</nav>
+
+<main>
+  <h2>Servicios Especializados</h2>
+
+  <div class="accordion-item">
+    <div class="accordion-header">ANALISIS DE LABORATORIO</div>
+    <div class="accordion-content">
+      <!-- Sub-acordeón -->
+      <div class="sub-accordion-item">
+        <div class="sub-accordion-header">ANALISIS DEL AGUA</div>
+        <div class="sub-accordion-content" style="text-align: left;">
+
+          <p>• NOM-001-SEMARNAT-2021. Que establece los límites máximos permisibles de contaminantes en las descargas de aguas residuales en aguas y bienes nacionales.</p>
+	  <p>• NOM-002-SEMARNAT-2021. Que establece los límites máximos permisibles de contaminantes en las descargas de 
+	   aguas residuales a los sistemas de alcantarillado urbano o municipal.</p>
+          <p>• NOM-003-SEMARNAT-1997. establece los límites máximos permisibles de contaminantes para las aguas residuales tratadas que se reutilizan en servicios al público.</p>
+          <img src="Estudio.jpg" alt="Análisis del Agua" width="300" style="display: block; margin: 0 auto;" />
+        </div>
+      </div>
+      <div class="sub-accordion-item">
+        <div class="sub-accordion-header">FUENTE FIJA</div>
+        <div class="sub-accordion-content" style="text-align: left;">
+
+          <p>• Norma Oficial Mexicana NOM-085-SEMARNAT-2011, contaminación atmosférica-fuentes fijas.- para fuentes fijas.</p>
+	  <p>• Norma Oficial Mexicana NOM-043-SEMARNAT-1993, que establece los niveles máximos permisibles de emisión a la
+	   atmósfera de partículas sólidas provenientes de fuentes fijas.</p>
+	  <p>• Norma Mexicana NOM-081-SEMARNAT-1994, Que establece los límites máximos permisibles de emisión de ruido de las fuentes fijas y su método de medición.</p>
+          <img src="Fuente.jpg" alt="Fuente Fija" width="300" style="display: block; margin: 0 auto;" />
+        </div>
+      </div>
+      <div class="sub-accordion-item">
+        <div class="sub-accordion-header">RESIDUOS Y SUELOS</div>
+        <div class="sub-accordion-content" style="text-align: left;">
+
+          <p>• NOM-052-SEMARNAT-2005. Caracterización CRIT o CRETIB.</p>
+	  <p>• NOM-053-SEMARNAT-1993. Extracto PECT para CRIT.</p>
+	  <p>• NOM-004-SEMARNAT-2002. Lodos y Biosólidos.</p>
+	  <p>• NOM-141-SEMARNAT-2003. Jales Mineros.</p>
+	  <p>• NOM-133-SEMARNAT-2015. Bifenilos Policlorados.</p>
+	  <p>• NOM-138-SEMARNAT/SSA1-2012. Hidrocarburos en suelos.</p>
+	  <p>• NOM-147-SEMARNAT/SSA1-2004. Metales en suelos.</p>
+          <img src="Suelos.png" alt="Residuos y Suelos" width="300" style="display: block; margin: 0 auto;"  />
+        </div>
+      </div>
+      <div class="sub-accordion-item">
+        <div class="sub-accordion-header">CALIDAD DEL AIRE</div>
+        <div class="sub-accordion-content" style="text-align: left;">
+
+          <p>• Norma Oficial Mexicana NOM-036-SEMARNAT-1993, Que establece los métodos de medición para determinar la concentración de ozono en el aire ambiente.</p>
+	  <p>• Norma Oficial Mexicana NOM-034-SEMARNAT-1993, que establece los métodos de medición para determinar la concentración de monóxido de carbono en el aire ambiente.</p>
+	  <p>• Norma Oficial Mexicana NOM-038-SEMARNAT-1993, que establece los métodos de medición para determinar la concentración de bióxido de azufre en el aire ambiente. 1993, que establece los métodos de medición para determinar la concentración de bióxido de nitrógeno en el aire ambiente.</p>
+	  <p>• Norma Oficial Mexicana NOM-035-SEMARNAT-1993, que establece los métodos de medición para determinar la concentración de partículas suspendidas totales en el aire ambiente.</p>
+	  <p>• NOM-025-SSA1-2021. Salud ambiental. Criterio para evaluar la calidad del aire ambiente, con respecto a las particulas suspendidas PM10 y PM2.5</p>
+          <img src="Calidad.jpg" alt="Calidad del Aire" style="display: block; margin: 0 auto; width: 500px; height: 90px; object-fit: cover;" />
+        </div>
+      </div>
+      <div class="sub-accordion-item">
+        <div class="sub-accordion-header">AMBIENTE LABORAL</div>
+        <div class="sub-accordion-content" style="text-align: left;">
+
+          <p>• NORMA Oficial Mexicana NOM-010-STPS-2014, Agentes químicos contaminantes del ambiente laboral-Reconocimiento, evaluación y control.</p>
+	  <p>• NOM-011-STPS-2001, Condiciones de seguridad e higiene en los centros de trabajo donde se genere ruido. Medición Física Electricidad estática en los centros de trabajo.</p>
+	  <p>• Norma Oficial Mexicana NOM-015-STPS-2001, Condiciones térmicas elevadas o abatidas-Condiciones de seguridad e higiene.</p>
+	  <p>• NOM-022-STPS-2015, Electricidad estática en los centros de trabajo Condiciones de seguridad.</p>
+	  <p>• NORMA Oficial Mexicana NOM-024-STPS-2001, Vibraciones-Condiciones de seguridad e higiene en los centros de trabajo.</p>
+	  <p>• NOM-025-STPS-2008. Condiciones de iluminación en los centros de trabajo.</p>
+	  <p>• NOM-012-STPS-2012. Radiaciones Ionizantes.</p>
+	  <p>• NOM-013-STPS-1993. Radiaciones No Ionizantes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">PROTECCIÓN CIVIL</div>
+    <div class="accordion-content" style="text-align: left;">
+      <p>• Programa Interno de Protección Civil.</p>
+      <p>• Opinion Tecnica de Seguridad.</p>
+      <p>• Opinion Tecnica de Factibilidad.</p>
+      <p>• Estudio de riesgo y Vulnerabilidad.</p>
+      <p>• Plan de Prevención de Accidentes (PPA)</p>
+      <img src="Civil.jpg" alt="Calidad del Aire" width="300" style="display: block; margin: 0 auto;" />
+    </div>
+  </div>
+
+ <div class="accordion-item">
+    <div class="accordion-header">CAPACITACIONES NÚMERO DE REGISTRO: CMP-240314-K80-0013</div>
+    <div class="accordion-content" style="text-align: left;">
+      <p>• NOM-030 -STTPS-2009. Servicios preventivos de seguridad y salud en el trabajo.</p>
+      <p>• NOM-036-1-STPS-2018. Factores de riesgo ergonómico en el trabajo.</p>
+      <p>• NOM-010-STPS-2014. AGENTES QUÍMICOS CONTAMINANTES DEL AMBIENTE.</p>
+      <p>• ENOM-011-STPS-2001. CONDICIONES DE SEGURIDAD E HIGIENE.</p>
+      <p>• NOM -015-STPS-2001. CONDICIONES TERMICAS ELEVADAS.</p>
+      <p>• NOM-024-STPS-2001. VIBRACIONES.</p>
+      <p>• NOM-025-STPS-2008. CONDICIONES DE ILUMINACIÓN EN LOS CENTROS DE TRABAJO.</p>
+      <p>• NOM-018-STPS-2015. SUSTANCIAS QUIMICAS.</p>
+      <p>• NOM-019-STPS-2011. COMISION DE SEGURIDAD E HIGIENE.</p>
+      <p>• NOM-026-STPS-1998. Colores y señales de seguridad e higiene.</p>
+      <p>• NOM-009-STPS-2011. Condiciones de seguridad para realizar trabajos en altura.</p>
+      <p>• NOM-033-STPS-2015. Condiciones de seguridad para realizar trabajos en espacios confinados.</p>
+      <p>• NOM-004-STPS-1999. Sistemas de protección en la maquinaria.</p>
+      <p>• NOM-017-STPS-2008. Equipo de protección personal.</p>
+      <p>• NOM-029-STPS-2011. Mantenimiento de las Instalaciones Eléctricas.</p>
+      <p>• NOM-035-STPS-2018. Factores de riesgo psicosocial.</p>
+      <p>• NOM-002-STPS-2010. Prevención y protección contra incendios.</p>
+      <p>• NOM-005-STPS-1998. Manejo, transporte y almacenamiento de sustancias peligrosas.</p>
+      <p>• NOM-006-STPS-2023. Almacenamiento y manejo de materiales mediante el uso de maquinaria.</p>
+      <p>• NOM-020-STPS-2011. Recipientes sujetos a presión y calderas.</p>
+      <p>• NOM-028-STPS-2012. Seguridad en procesos y equipos con sustancias químicas.</p>
+      <p>• NOM-037-STPS-2023. Teletrabajo.</p>
+      <p>• NOM-022-STPS-2015. Electricidad estática.</p>
+      <p>• NOM-027-STPS-2008. Actividades de soldadura y corte.</p>
+      <p>• NOM-012-STPS-2012. Condiciones de seguridad y salud en fuentes de radiación íonizante.</p>
+      <p>• NOM-013-STPS-1993. Condiciones de seguridad en fuentes de radiaciones electromagnéticas no ionizantes.</p>
+      <p>• NOM-014-STPS-2000. Exposición laboral a presiones ambientales anormales.</p>
+      <img src="Capa.jpg" alt="Calidad del Aire" width="300" style="display: block; margin: 0 auto;" />
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">SECRETARIA DE MEDIO AMBIENTE Y RECUROS NATURALES ESTATAL Y FEDERAL</div>
+    <div class="accordion-content" style="text-align: left;">
+      <p>• Regulación Ambiental.</p>
+      <p>• Estudio en Materia de Impacto Ambiental mediante Informe Preventivo.</p>
+      <p>• Estudio en Materia de Impacto Ambiental mediante Manifestación de Impacto Ambiental Particular.</p>
+      <p>• Tramite de Modificación de Autorizaciones de Manifestaciones de Impacto Ambiental.</p>
+      <p>• Plan de Manejo de Residuos de Manejo Especial.</p>
+      <p>• Tramite Registro como generador de Residuos de Manejo Especial.</p>
+      <p>• Instrumentación y Seguimiento de Bitácoras de Generación de Residuos de Manejo Especial.</p>
+      <p>• Instrumentación y Seguimiento de Bitácoras de Operación de Equipos y Procesos Generadores de Emisiones a la Atmósfera.</p>
+      <p>• Cédula de Operación Anual.</p>
+      <p>• Licencia Ambiental Estatal.</p>
+      <p>• Informes Preventivos.</p>
+      <p>• Estudio de Riesgo Ambiental y Programa de prevención de Accidentes.</p>
+      <p>• NOM-054-SEMARNAT-1993. Incompatibilidad entre residuos peligrosos.</p>
+      <p>• NOM-161-SEMARNAT-2011. Residuos de Manejo Especial.</p>
+      <p>• Seguimiento y cumplimiento acondicionantes.</p>
+      <p>• Autorización como transportista de residuos.</p>
+      <p>• Cálculo de Gases de Efecto Invernadero GEI.</p>
+      <img src="Recursos.jpg" alt="Ambiente Laboral" width="300" style="display: block; margin: 0 auto;" />
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">UNIDAD DE INSPECCIÓN</div>
+    <div class="accordion-content" style="text-align: left;">
+      <p>• NOM-002-STPS-2010. Condiciones de seguridad prevención y protección contra incendios.</p>
+      <p>• NOM-020-STPS-2011. Recipientes Sujetos a Presión (RSP).</p>
+      <p>•NOM-029-STPS-2011 Establece las condiciones de seguridad para el mantenimiento de instalaciones eléctricas en los centros de trabajo.</p>
+      <img src="Norma.png" alt="Protección Civil" width="300" style="display: block; margin: 0 auto;" />
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">COMISIÓN REGULADORA DE ENERGÍA</div>
+    <div class="accordion-content" style="text-align: left;">
+      <p>• Trámite para obtener el Permiso de Venta de Petrolíferos Modalidad Expendio.</p>
+      <p>• Trámite para obtener el Permiso de Venta de Petrolíferos Modalidad Transporte.</p>
+      <p>• Estudio de Impacto Social.</p>
+      <p>• Conformación e implementación de un Sistema de Gestión de Medición (SGM) con el objetivo de que los resultados de medición sean conformes con las 
+       Especificaciones metrológicas. El modelo del SGM puede ser equivalente al contenido de la norma NMX-EC-17025 o NMX-CC-10012-IMNC-2004, o las que las
+       sustituyan (RESOLUCIÓN Núm. RES/811/2015).</p>
+      <img src="Cr.jpg" alt="Impacto Ambiental" width="300" style="display: block; margin: 0 auto;" />
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">AGENCIA DE SEGURIDAD, ENERGÍA Y AMBIENTE</div>
+    <div class="accordion-content" style="text-align: left;">
+      <p>• Conformación e Implementación del “Sistema De Administración de Seguridad Industrial, Seguridad Operativa y Protección al Medio Ambiente Aplicables a las
+      Actividades de Expendio al Público de Petrolíferos” SASISOPA, por parte de la Agencia de Seguridad Energía y Ambiente (ASEA).</p>
+      <p>• Estudio en Materia de Impacto Ambiental mediante Informe Preventivo.</p>
+      <p>• Estudio en Materia de Impacto Ambiental mediante Manifestación de Impacto Ambiental Particular.</p>
+      <p>• Tramite de Modificación de Autorizaciones de Manifestaciones de Impacto Ambiental.</p>
+      <p>• Trámite de Licencia Ambiental Única (LAU).</p>
+      <p>• Cedula de Operación Anual.</p>
+      <p>• Registro como generador de Residuos Peligrosos Registro como generador de Residuos de Manejo Especial</p>
+      <p>• Implementación, Revisión y supervisión de la Norma Oficial Mexicana NOM-005-ASEA-2016, diseño, construcción, operación y mantenimiento de
+       estaciones de servicio para almacenamiento y expendio de diésel y gasolinas.</p>
+      <p>• Verificación bajo la NOM-005-ASEA-2016 en la Etapa de Diseño, Construcción, Operación y Mantenimiento.</p>
+      <p>• Estudio de vientos predominantes</p>
+      <p>• Estudio de riesgo ambiental</p>
+      <img src="Ag.jpg" alt="CRE / ASEA" width="300" style="display: block; margin: 0 auto;"  />
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">COMISION NACIONAL DE AGUA</div>
+    <div class="accordion-content" style="text-align: left;">
+      <p>• Registro de descarga de agua residual.</p>
+      <p>• Permisos, autorizaciones y concesiones</p>
+      <img src="Co.jpg" alt="Peritajes" width="300" style="display: block; margin: 0 auto;" />
+    </div>
+  </div>
+
+<div class="accordion-item">
+    <div class="accordion-header">SECRETARIA DE OBRAS PUBLICAS Y ORDENAMIENTO TERRITORIAL</div>
+    <div class="accordion-content" style="text-align: left;">
+      <p>• Licencias de construcción.</p>
+      <p>• Constancia de Uso de suelo.</p>
+      <p>• Constancia de Viabilidad.</p>
+      <p>• Estudio Urbano y Vial.</p>
+      <p>• Estudios de Riesgo y Vulnerabilidad.</p>
+      <p>• Topografía.</p>
+      <p>• Mecánica de Suelo.</p>
+      <img src="Ob.jpg" alt="Peritajes" width="300" style="display: block; margin: 0 auto;" />
+    </div>
+  </div>
+
+<div class="accordion-item">
+    <div class="accordion-header">PROFEPA</div>
+    <div class="accordion-content" style="text-align: left;">
+      <p>• Asesoría legal.</p>
+      <p>• Apoyo técnico y legal durante visitas de inspección.</p>
+      <img src="Po.jpg" alt="Peritajes" width="300" style="display: block; margin: 0 auto;" />
+    </div>
+  </div>
+
+<div class="accordion-item">
+    <div class="accordion-header">SEGURIDAD LABORAL</div>
+    <div class="accordion-content" style="text-align: left;">
+      <p>• NOM-001-STPS-2008. Condiciones de seguridad en centros de trabajo.</p>
+      <p>• NOM-002-STPS-2010. Condiciones de seguridad prevención y protección contra incendios.</p>
+      <p>• NOM-004-STPS-1999. Dispositivos de seguridad.</p>
+      <p>• NOM-005-STPS-1998. Manejo sustancias químicas peligrosas.</p>
+      <p>• NOM-006-STPS-2023. Manejo y almacenamiento de materiales.</p>
+      <p>• NOM-009-STPS-2011. Trabajos en altura.</p>
+      <p>• NOM-017-STPS-2008. Equipo de Protección Personal (EPP).</p>
+      <p>• NOM-027-STPS-2008. Actividades de soldadura.</p>
+      <p>• NOM-028-STPS-2012. Sistema para la administración del trabajo-seguridad en proceso y equipos críticos que manejan sustancias químicas peligrosas.</p>
+      <p>• NOM-029-STPS-2011. Instalaciones eléctricas.</p>
+      <p>• NOM-030-STPS-2009. Servicios preventivos de seguridad.</p>
+      <p>• NOM-033-STPS-2015. Trabajos en espacios confinados.</p>
+      <p>• NOM-036-1-STPS-2018. Factores de riesgo ergonómico en el trabajo.</p>
+      <img src="Se.jpg" alt="Peritajes" width="300" style="display: block; margin: 0 auto;" />
+    </div>
+  </div>
+
+<div class="accordion-item">
+    <div class="accordion-header">DICTAMEN</div>
+    <div class="accordion-content" style="text-align: left;">
+      <p>• Dictamen pericial en Materia Ambiental.</p>
+      <p>• Dictamen pericial en Materia Laboral.</p>
+      <p>• Dictamen estructural.</p>
+      <p>• Dictamen electrico.</p>
+      <p>• Firma de DRyC en planeación, edificación y supervición</p>
+      <p>• Elaboración de programas y reportes ambientales.</p>
+
+      <img src="Pe.jpg" alt="Peritajes" width="300" style="display: block; margin: 0 auto;" />
+    </div>
+  </div>
+</main>
+
+<button class="boton-chat" onclick="window.open('https://wa.me/5217716838391', '_blank')">
+  <i class="fab fa-whatsapp"></i>
+</button>
+
+<script>
+  // Acordeón general
+  const headers = document.querySelectorAll('.accordion-header');
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const openItem = document.querySelector('.accordion-content.open');
+      const content = header.nextElementSibling;
+
+      if(openItem && openItem !== content) {
+        openItem.classList.remove('open');
+        openItem.previousElementSibling.classList.remove('active');
+
+        // Also close any open sub-accordions inside previous open content
+        const openSubs = openItem.querySelectorAll('.sub-accordion-content.open');
+        openSubs.forEach(sub => {
+          sub.classList.remove('open');
+          sub.previousElementSibling.classList.remove('active');
+        });
+      }
+
+      content.classList.toggle('open');
+      header.classList.toggle('active');
+    });
+  });
+
+  // Sub-acordeón para Estudios de Laboratorio
+  const subHeaders = document.querySelectorAll('.sub-accordion-header');
+  subHeaders.forEach(subHeader => {
+    subHeader.addEventListener('click', () => {
+      const content = subHeader.nextElementSibling;
+      content.classList.toggle('open');
+      subHeader.classList.toggle('active');
+    });
+  });
+</script>
+
+<footer>
+  <p>&copy; 2025 COPROMISE. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

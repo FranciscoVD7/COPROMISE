@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COPROMISE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { 
+      font-family: 'Roboto', sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background-color: #2e4957; 
+      color: white; 
+    }
+    header { 
+      background: linear-gradient(to right, #004d40, #00695c); 
+      padding: 30px 20px; 
+      text-align: center;
+    }
+    .logo-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .logo-container img {
+      height: 100px; /* tamaño aumentado aquí */
+    }
+    nav { 
+      background-color: #00796b; 
+      display: flex; 
+      justify-content: center; 
+      padding: 12px 0; 
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    }
+    nav a { 
+      color: white; 
+      text-decoration: none; 
+      margin: 0 20px; 
+      font-weight: bold; 
+      transition: color 0.3s ease; 
+    }
+    nav a:hover { color: #b2dfdb; }
+    main { 
+      padding: 60px 20px; 
+      text-align: center; 
+      animation: fadeIn 1s ease-in-out; 
+    }
+    h2 { color: orange; font-size: 2rem; margin-bottom: 20px; }
+    p { 
+      font-size: 1.1rem; 
+      max-width: 800px; 
+      margin: 0 auto 20px; 
+      color: white;
+    }
+    .boton-chat { 
+      position: fixed; 
+      bottom: 20px; 
+      right: 20px; 
+      background: #25D366; 
+      color: white; 
+      padding: 12px 16px; 
+      border: none; 
+      border-radius: 50%; 
+      font-size: 1.5rem; 
+      cursor: pointer; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+    }
+    .boton-chat:hover { background: #1ebe5d; }
+    footer { 
+      background-color: #004d40; 
+      color: white; 
+      text-align: center; 
+      padding: 20px; 
+      margin-top: 40px; 
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="1.png" alt="Logo Izquierda">
+    <img src="2.png" alt="Logo Centro">
+    <img src="3.png" alt="Logo Derecha">
+  </div>
+<h1><i class="fas fa-leaf"></i> COPROMISE</h1>
+  <p>Consultoría en Medio Ambiente, Seguridad Industrial y Operativa</p>
+</header>
+
+<nav>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="servicios.html">Servicios</a>
+  <a href="contacto.html">Contacto</a>
+</nav>
+
+<main>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: nowrap;">
+    
+    
+<img src="Pl.jpg" alt="Imagen izquierda" style="height: 500px; width: auto; max-width: 100%;">
+    
+    <div style="max-width: 600px; text-align: justify; line-height: 1.6;">
+      <h2 style="text-align: center;">Bienvenido a <span style="color: orange;">COPROMISE</span></h2>
+      <p>
+        En COPROMISE nos dedicamos a ofrecer soluciones integrales y personalizadas en consultoría ambiental, seguridad industrial y operativa. Nuestro compromiso es ayudarte a cumplir con las normativas vigentes y optimizar tus procesos para que tu empresa opere de manera eficiente y sustentable.
+
+Con años de experiencia en el sector, brindamos servicios especializados que incluyen diagnóstico, implementación de sistemas de gestión, capacitación, y asesoría continua. Trabajamos contigo para identificar oportunidades de mejora y garantizar el bienestar de tu equipo, la protección del medio ambiente y el éxito sostenible de tu negocio.
+
+<h2 style="text-align: center;">
+   <span style="
+    font-weight: bold;
+    background: linear-gradient(90deg, #FF4500, #00FA9A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    ">
+    Confía en COPROMISE para transformar tus retos en soluciones efectivas, que impulsen tu competitividad y responsabilidad social.
+  </span>
+</h2>
+
+      </p>
+    </div>
+    
+    <img src="Per.jpg" alt="Imagen derecha" style="height: 500px; width: auto; max-width: 100%;">
+  </div>
+</main>
+
+
+
+
+<button class="boton-chat" onclick="window.open('https://wa.me/5217716838391', '_blank')">
+  <i class="fab fa-whatsapp"></i>
+</button>
+
+<footer>
+  <p>&copy; 2025 COPROMISE. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

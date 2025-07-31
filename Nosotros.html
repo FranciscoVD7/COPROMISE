@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COPROMISE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { 
+      font-family: 'Roboto', sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background-color: #2e4957; 
+      color: white; 
+    }
+    header { 
+      background: linear-gradient(to right, #004d40, #00695c); 
+      padding: 30px 20px; 
+      text-align: center;
+    }
+    .logo-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .logo-container img {
+      height: 100px; /* tamaño aumentado aquí */
+    }
+    nav { 
+      background-color: #00796b; 
+      display: flex; 
+      justify-content: center; 
+      padding: 12px 0; 
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    }
+    nav a { 
+      color: white; 
+      text-decoration: none; 
+      margin: 0 20px; 
+      font-weight: bold; 
+      transition: color 0.3s ease; 
+    }
+    nav a:hover { color: #b2dfdb; }
+    main { 
+      padding: 60px 20px; 
+      text-align: center; 
+      animation: fadeIn 1s ease-in-out; 
+    }
+    h2 { color: orange; font-size: 2rem; margin-bottom: 20px; }
+    p { 
+      font-size: 1.1rem; 
+      max-width: 800px; 
+      margin: 0 auto 20px; 
+      color: white;
+    }
+    .boton-chat { 
+      position: fixed; 
+      bottom: 20px; 
+      right: 20px; 
+      background: #25D366; 
+      color: white; 
+      padding: 12px 16px; 
+      border: none; 
+      border-radius: 50%; 
+      font-size: 1.5rem; 
+      cursor: pointer; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+    }
+    .boton-chat:hover { background: #1ebe5d; }
+    footer { 
+      background-color: #004d40; 
+      color: white; 
+      text-align: center; 
+      padding: 20px; 
+      margin-top: 40px; 
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="1.png" alt="Logo Izquierda">
+    <img src="2.png" alt="Logo Centro">
+    <img src="3.png" alt="Logo Derecha">
+  </div>
+<h1><i class="fas fa-leaf"></i> COPROMISE</h1>
+  <p>Consultoría en Medio Ambiente, Seguridad Industrial y Operativa</p>
+</header>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="servicios.html">Servicios</a>
+  <a href="contacto.html">Contacto</a>
+</nav>
+
+<main>
+  <h2>¿QUIENES SOMOS?</h2>
+  <div class="descripcion">
+    <p>Somos una empresa dedicada a satisfacer las necesidades de consultoría en Protección al Medio Ambiente, Seguridad Industrial y Seguridad Operativa, mediante la administración de proyectos y procesos de negocio, de una forma diferente y versátil, así mismo proveer la educación y protección al ambiente.</p>
+    <img src="Logo99.jpg" alt="Imagen representativa del equipo de trabajo" width="700" height="300" style="display: block; margin: 0 auto;" />
+  </div>
+
+  <div class="quienes-container" style="display: flex; justify-content: space-between; gap: 40px; margin-top: 40px; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 300px; background-color: #263238; border-radius: 10px; padding: 20px;">
+      <div style="text-align: center;">
+        <i class="fas fa-bullseye" style="display: block; font-size: 2.5rem; color: orange; margin-bottom: 10px;"></i>
+        <h3 style="color: orange; text-align: center;">MISIÓN</h3>
+      </div>
+      <p style="text-align: left; color: white;">Cumplir puntualmente con los compromisos ofertados incorporando metodologías basadas en las mejores prácticas, maximizando la rentabilidad de nuestros clientes y desarrollando excelentes alianzas con proveedores para alcanzar con éxito los objetivos de negocio.</p>
+    </div>
+    <div style="flex: 1; min-width: 300px; background-color: #263238; border-radius: 10px; padding: 20px;">
+      <div style="text-align: center;">
+        <i class="fas fa-eye" style="display: block; font-size: 2.5rem; color: orange; margin-bottom: 10px;"></i>
+        <h3 style="color: orange; text-align: center;">VISIÓN</h3>
+      </div>
+      <p style="text-align: left; color: white;">Ser una de las principales empresas en consultoría en Protección al Medio Ambiente, Seguridad Industrial y Seguridad Operativa, posicionándose como reconocida gracias a la eficiencia y eficacia de sus profesionistas, así como por la calidad de los servicios que ofrecemos a nuestros clientes.</p>
+    </div>
+  </div>
+</main>
+
+
+
+
+
+
+<button class="boton-chat" onclick="window.open('https://wa.me/5217716838391', '_blank')"><i class="fab fa-whatsapp"></i></button>
+
+<footer>
+  <p>&copy; 2025 COPROMISE. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

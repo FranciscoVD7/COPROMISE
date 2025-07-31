@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COPROMISE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { 
+      font-family: 'Roboto', sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background-color: #2e4957; 
+      color: white; 
+    }
+    header { 
+      background: linear-gradient(to right, #004d40, #00695c); 
+      padding: 30px 20px; 
+      text-align: center;
+    }
+    .logo-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .logo-container img {
+      height: 100px; /* tamaño aumentado aquí */
+    }
+    nav { 
+      background-color: #00796b; 
+      display: flex; 
+      justify-content: center; 
+      padding: 12px 0; 
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    }
+    nav a { 
+      color: white; 
+      text-decoration: none; 
+      margin: 0 20px; 
+      font-weight: bold; 
+      transition: color 0.3s ease; 
+    }
+    nav a:hover { color: #b2dfdb; }
+    main { 
+      padding: 60px 20px; 
+      text-align: center; 
+      animation: fadeIn 1s ease-in-out; 
+    }
+    h2 { color: orange; font-size: 2rem; margin-bottom: 20px; }
+    p { 
+      font-size: 1.1rem; 
+      max-width: 800px; 
+      margin: 0 auto 20px; 
+      color: white;
+    }
+    .boton-chat { 
+      position: fixed; 
+      bottom: 20px; 
+      right: 20px; 
+      background: #25D366; 
+      color: white; 
+      padding: 12px 16px; 
+      border: none; 
+      border-radius: 50%; 
+      font-size: 1.5rem; 
+      cursor: pointer; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+    }
+    .boton-chat:hover { background: #1ebe5d; }
+    footer { 
+      background-color: #004d40; 
+      color: white; 
+      text-align: center; 
+      padding: 20px; 
+      margin-top: 40px; 
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="1.png" alt="Logo Izquierda">
+    <img src="2.png" alt="Logo Centro">
+    <img src="3.png" alt="Logo Derecha">
+  </div>
+<h1><i class="fas fa-leaf"></i> COPROMISE</h1>
+  <p>Consultoría en Medio Ambiente, Seguridad Industrial y Operativa</p>
+</header>
+
+<nav>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="servicios.html">Servicios</a>
+  <a href="contacto.html">Contacto</a>
+</nav>
+
+<main>
+  <h2>Contacto</h2>
+  <p><strong><i class="fas fa-user"></i> Nombre:</strong> Ing. Cinthya Téllez Valencia</p>
+  <p><strong><i class="fas fa-phone"></i> Teléfono:</strong> <a href="tel:+527716838391">771 683 83 91</a></p>
+  <p><strong><i class="fas fa-at"></i> Email:</strong> <a href="mailto:Consultoria.copromise@gmail.com">Consultoria.copromise@gmail.com</a></p>
+  <p><strong><i class="fas fa-home"></i> Dirección:</strong> Guerrero, 715, 112, Centro, 42000, Pachuca de Soto, Hgo.</p>
+
+  <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d195.42108624405466!2d-98.73521040398761!3d20.124392837374945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d109e56d3b683f%3A0x71ebca811b1d2ded!2sCalle%20Vicente%20Guerrero%20715-112%2C%20Centro%2C%2042000%20Pachuca%20de%20Soto%2C%20Hgo.!5e1!3m2!1ses!2smx!4v1753827067691!5m2!1ses!2smx" 
+  width="100%" 
+  height="500" 
+  style="border:0; border-radius:10px; margin-top:20px;" 
+  allowfullscreen 
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+<p style="text-align:center; font-weight:bold; margin-top:10px;">
+  Calle Vicente Guerrero 715-112, Centro, 42000 Pachuca de Soto, Hgo.
+</p>
+
+</main>
+<button class="boton-chat" onclick="window.open('https://wa.me/5217716838391', '_blank')">
+  <i class="fab fa-whatsapp"></i>
+</button>
+
+<footer>
+  <p>&copy; 2025 COPROMISE. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
